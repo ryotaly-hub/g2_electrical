@@ -6,118 +6,166 @@
 <title>2級電気工事施工管理技士 第一次検定 学習アプリ</title>
 <style>
   :root{
-    --bg:#f4f6f9; --card:#ffffff; --ink:#1d2733; --sub:#5b6b7c;
-    --line:#dfe5ec; --brand:#0b6b53; --brand2:#0e8a6c; --accent:#1c5db5;
-    --ok:#1f8a4c; --okbg:#e7f6ec; --ng:#c0392b; --ngbg:#fdecea;
-    --warn:#b9770e; --warnbg:#fdf3e2; --pick:#e8f0fb;
-    --shadow:0 1px 3px rgba(0,0,0,.08),0 8px 24px rgba(0,0,0,.06);
+    --bg:#eef2ff; --card:#ffffff; --ink:#0f172a; --sub:#64748b;
+    --line:#e2e8f0; --brand:#2563eb; --brand-d:#1d4ed8; --brand-soft:#e0e7ff;
+    --accent:#2563eb;
+    --ok:#16a34a; --okbg:#dcfce7; --ok-ink:#14532d;
+    --ng:#dc2626; --ngbg:#fee2e2; --ng-ink:#7f1d1d;
+    --warn:#b45309; --warnbg:#fef3c7; --warn-ink:#78350f; --warn-line:#fde68a;
+    --pick:#e0e7ff;
+    --shadow:0 1px 2px rgba(15,23,42,.04),0 12px 32px rgba(37,99,235,.10);
+    --radius:18px;
   }
   @media (prefers-color-scheme:dark){
     :root{
-      --bg:#12171d; --card:#1b222b; --ink:#e7edf4; --sub:#9fb0c0;
-      --line:#2c3742; --brand:#3fbf9c; --brand2:#54cbaa; --accent:#6ea8ff;
-      --ok:#57c98a; --okbg:#173226; --ng:#f0837a; --ngbg:#3a201d;
-      --warn:#e0a94a; --warnbg:#372a15; --pick:#1e2c40;
-      --shadow:0 1px 3px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.35);
+      --bg:#0f1420; --card:#1a2233; --ink:#e8edf7; --sub:#94a3b8;
+      --line:#2b3650; --brand:#3b82f6; --brand-d:#93c5fd; --brand-soft:#22304d;
+      --accent:#93c5fd;
+      --ok:#4ade80; --okbg:#14311f; --ok-ink:#bbf7d0;
+      --ng:#f87171; --ngbg:#3a1d1d; --ng-ink:#fecaca;
+      --warn:#fbbf24; --warnbg:#3a2c12; --warn-ink:#fde68a; --warn-line:#4d3a17;
+      --pick:#22304d;
+      --shadow:0 1px 2px rgba(0,0,0,.4),0 14px 34px rgba(0,0,0,.4);
     }
   }
   *{box-sizing:border-box}
-  html,body{margin:0;padding:0}
+  html,body{margin:0;padding:0;overflow-x:hidden}
   body{
     background:var(--bg); color:var(--ink);
-    font-family:"Segoe UI","Hiragino Kaku Gothic ProN","Yu Gothic UI",Meiryo,sans-serif;
-    line-height:1.75; -webkit-text-size-adjust:100%;
+    font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic UI",Meiryo,"Segoe UI",system-ui,sans-serif;
+    line-height:1.8; -webkit-text-size-adjust:100%;
   }
   header{
-    background:linear-gradient(135deg,var(--brand),var(--brand2));
-    color:#fff; padding:18px 20px; box-shadow:var(--shadow);
+    position:sticky; top:0; z-index:40;
+    background:var(--card); border-bottom:1px solid var(--line);
+    padding:12px 16px calc(12px + env(safe-area-inset-top)); text-align:center;
   }
-  header h1{margin:0;font-size:1.15rem;letter-spacing:.02em}
-  header p{margin:4px 0 0;font-size:.8rem;opacity:.9}
-  .wrap{max-width:860px;margin:0 auto;padding:16px}
-  nav{
-    display:flex;gap:6px;flex-wrap:wrap;max-width:860px;margin:12px auto 0;padding:0 16px;
-  }
-  nav button{
-    flex:1 1 auto;min-width:110px;border:1px solid var(--line);background:var(--card);
-    color:var(--sub);padding:10px 8px;border-radius:10px 10px 0 0;cursor:pointer;
-    font-size:.85rem;font-weight:600;transition:.15s;
-  }
-  nav button.active{background:var(--brand);color:#fff;border-color:var(--brand)}
+  header .mark{font-size:.68rem;font-weight:700;color:var(--sub);letter-spacing:.06em}
+  header h1{margin:1px 0 0;font-size:1.06rem;font-weight:800;color:var(--brand-d);letter-spacing:.02em}
+  .wrap{max-width:720px;margin:0 auto;padding:16px 16px 24px}
   .card{
-    background:var(--card);border:1px solid var(--line);border-radius:14px;
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
     padding:18px;margin-bottom:14px;box-shadow:var(--shadow);
+    overflow-wrap:anywhere;
   }
-  h2{font-size:1.02rem;margin:0 0 10px}
-  h3{font-size:.92rem;margin:16px 0 8px;color:var(--brand)}
+  h2{font-size:1.06rem;font-weight:800;margin:0 0 10px}
+  h3{font-size:.92rem;font-weight:800;margin:18px 0 8px;color:var(--brand-d)}
   p,li{font-size:.9rem}
   .muted{color:var(--sub);font-size:.82rem}
   .btn{
-    display:inline-block;background:var(--brand);color:#fff;border:none;border-radius:10px;
-    padding:11px 18px;font-size:.9rem;font-weight:700;cursor:pointer;transition:.15s;
+    display:inline-block;background:var(--brand);color:#fff;border:none;border-radius:12px;
+    padding:12px 20px;font-size:.9rem;font-weight:800;cursor:pointer;transition:transform .1s,filter .15s;
+    box-shadow:0 6px 16px rgba(37,99,235,.28);
   }
-  .btn:hover{filter:brightness(1.06)}
-  .btn.sec{background:var(--card);color:var(--brand);border:1px solid var(--brand)}
-  .btn.ghost{background:transparent;color:var(--sub);border:1px solid var(--line)}
-  .btn:disabled{opacity:.45;cursor:not-allowed}
-  .grid{display:grid;gap:10px;grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
+  .btn:hover{filter:brightness(1.05)}
+  .btn:active{transform:translateY(1px)}
+  .btn.sec{background:var(--card);color:var(--brand);border:1.5px solid var(--brand);box-shadow:none}
+  .btn.ghost{background:var(--card);color:var(--sub);border:1.5px solid var(--line);box-shadow:none}
+  .btn:disabled{opacity:.4;cursor:not-allowed;box-shadow:none}
+  .grid{display:grid;gap:10px;grid-template-columns:1fr 1fr}
+  @media(max-width:390px){ .grid{grid-template-columns:1fr} }
   .catbtn{
-    text-align:left;background:var(--card);border:1px solid var(--line);border-radius:12px;
-    padding:12px;cursor:pointer;transition:.15s;color:var(--ink)
+    text-align:left;background:var(--card);border:1.5px solid var(--line);border-radius:16px;
+    padding:14px;cursor:pointer;transition:.15s;color:var(--ink);box-shadow:var(--shadow);
+    min-width:0;overflow-wrap:anywhere;
   }
-  .catbtn:hover{border-color:var(--brand);transform:translateY(-1px)}
-  .catbtn b{display:block;font-size:.88rem}
+  .catbtn:hover{border-color:var(--brand);transform:translateY(-2px)}
+  .catbtn b{display:block;font-size:.9rem}
   .catbtn span{font-size:.75rem;color:var(--sub)}
-  .qmeta{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:6px}
-  .chip{font-size:.72rem;font-weight:700;padding:3px 9px;border-radius:999px;background:var(--pick);color:var(--accent)}
-  .progress{height:8px;background:var(--line);border-radius:999px;overflow:hidden;margin:8px 0 2px}
-  .progress > div{height:100%;background:var(--brand);transition:width .3s}
-  .qtext{font-size:.95rem;font-weight:600;margin:8px 0 12px;white-space:pre-wrap}
-  .choices{display:flex;flex-direction:column;gap:8px}
-  .choice{
-    display:flex;gap:10px;align-items:flex-start;border:1px solid var(--line);border-radius:10px;
-    padding:11px 12px;cursor:pointer;background:var(--card);transition:.12s;font-size:.9rem
+  .qmeta{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:4px}
+  .chip{
+    display:inline-block;font-size:.72rem;font-weight:800;padding:5px 13px;border-radius:999px;
+    background:var(--brand);color:#fff;letter-spacing:.02em;
   }
-  .choice:hover{border-color:var(--accent);background:var(--pick)}
-  .choice.picked{border-color:var(--accent);background:var(--pick)}
-  .choice.correct{border-color:var(--ok);background:var(--okbg)}
-  .choice.wrong{border-color:var(--ng);background:var(--ngbg)}
-  .choice .no{font-weight:800;color:var(--sub);flex:none}
-  .choice.correct .no{color:var(--ok)}
-  .choice.wrong .no{color:var(--ng)}
-  .fb{border-radius:10px;padding:12px 14px;margin-top:12px;font-size:.86rem}
-  .fb.ok{background:var(--okbg);border:1px solid var(--ok)}
-  .fb.ng{background:var(--ngbg);border:1px solid var(--ng)}
-  .fb b{display:block;margin-bottom:4px}
-  .fb .pt{margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
-  .rowbtn{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
-  .score{font-size:2.4rem;font-weight:800;line-height:1}
+  .progress{height:6px;background:var(--line);border-radius:999px;overflow:hidden;margin:10px 0 4px}
+  .progress > div{height:100%;background:var(--brand);border-radius:999px;transition:width .3s}
+  .qtext{font-size:.98rem;font-weight:700;line-height:1.7;margin:12px 0 14px;white-space:pre-wrap}
+  .choices{display:flex;flex-direction:column;gap:10px}
+  .choice{
+    display:flex;gap:12px;align-items:flex-start;border:1.5px solid var(--line);border-radius:14px;
+    padding:13px 14px;cursor:pointer;background:var(--card);transition:.12s;font-size:.9rem;
+  }
+  .choice > span:last-child{flex:1;min-width:0;overflow-wrap:anywhere}
+  .choice:hover{border-color:var(--brand)}
+  .choice .no{
+    flex:none;width:26px;height:26px;border-radius:50%;margin-top:1px;
+    display:grid;place-items:center;background:var(--brand-soft);color:var(--brand-d);
+    font-weight:800;font-size:.78rem;
+  }
+  .choice.picked{border-color:var(--brand);background:var(--pick)}
+  .choice.correct{border-color:var(--ok);background:var(--okbg);color:var(--ok-ink)}
+  .choice.correct .no{background:var(--ok);color:#fff}
+  .choice.wrong{border-color:var(--ng);background:var(--ngbg);color:var(--ng-ink)}
+  .choice.wrong .no{background:var(--ng);color:#fff}
+  .choice.correct::after,.choice.wrong::after{align-self:center;font-weight:900;font-size:1rem;flex:none}
+  .choice.correct::after{content:"✓";color:var(--ok)}
+  .choice.wrong::after{content:"✕";color:var(--ng)}
+  .fb{border-radius:14px;padding:14px 16px;margin-top:14px;font-size:.87rem;line-height:1.75}
+  .fb.ok{background:var(--okbg);color:var(--ok-ink)}
+  .fb.ng{background:var(--ngbg);color:var(--ng-ink)}
+  .fb b{display:block;margin-bottom:4px;font-weight:800}
+  .fb .pt{margin-top:10px;padding-top:10px;border-top:1px dashed rgba(120,120,120,.35)}
+  .rowbtn{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+  .rowbtn .btn{flex:1 1 150px}
+  .score{font-size:2.6rem;font-weight:900;line-height:1}
   .score.pass{color:var(--ok)} .score.fail{color:var(--ng)}
   table{width:100%;border-collapse:collapse;font-size:.82rem}
-  th,td{border:1px solid var(--line);padding:8px;text-align:left}
-  th{background:var(--pick)}
-  details{border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin-bottom:8px;background:var(--card)}
-  details summary{cursor:pointer;font-weight:700;font-size:.86rem}
+  th,td{border:none;border-bottom:1px solid var(--line);padding:10px 8px;text-align:left}
+  th{color:var(--sub);font-size:.74rem;font-weight:700}
+  details{border:1.5px solid var(--line);border-radius:14px;padding:12px 14px;margin-bottom:8px;background:var(--card)}
+  details summary{cursor:pointer;font-weight:800;font-size:.85rem}
   details[open] summary{margin-bottom:8px}
-  .arch-item{border-left:4px solid var(--brand);padding-left:12px;margin-bottom:14px}
+  .arch-item{border-left:3px solid var(--brand);padding-left:12px;margin-bottom:14px}
   .hidden{display:none}
-  .kv{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0}
-  .kv span{font-size:.78rem;background:var(--pick);padding:3px 8px;border-radius:6px}
-  .note{background:var(--warnbg);border:1px solid var(--warn);border-radius:10px;padding:10px 12px;font-size:.82rem}
-  footer{text-align:center;color:var(--sub);font-size:.75rem;padding:24px}
-  @media(max-width:560px){ .score{font-size:2rem} nav button{min-width:0;flex:1 1 40%} }
+  .kv{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+  .kv span{font-size:.78rem;font-weight:700;background:var(--brand-soft);color:var(--brand-d);padding:5px 11px;border-radius:8px;overflow-wrap:anywhere;min-width:0}
+  .note{background:var(--warnbg);border:1px solid var(--warn-line);color:var(--warn-ink);border-radius:14px;padding:12px 14px;font-size:.82rem;line-height:1.7}
+  footer{text-align:center;color:var(--sub);font-size:.74rem;padding:20px 16px 130px}
+
+  /* bottom tab bar */
+  .tabbar{
+    position:fixed;left:0;right:0;bottom:0;z-index:50;
+    display:flex;justify-content:center;
+    background:var(--brand);border-radius:22px 22px 0 0;
+    padding:9px 12px calc(9px + env(safe-area-inset-bottom));
+    box-shadow:0 -8px 28px rgba(37,99,235,.28);
+  }
+  .tabbar .inner{display:flex;width:100%;max-width:480px;justify-content:space-between}
+  .tabbar button{
+    flex:1;background:none;border:none;cursor:pointer;color:rgba(255,255,255,.68);
+    display:flex;flex-direction:column;align-items:center;gap:2px;
+    font-size:.62rem;font-weight:700;padding:4px 2px;transition:color .15s;
+  }
+  .tabbar button svg{width:23px;height:23px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+  .tabbar button.active{color:#fff}
+  .tabbar button.active svg{stroke-width:2.3}
+  @media(max-width:560px){ .score{font-size:2.1rem} .rowbtn .btn{flex:1 1 100%} }
 </style>
 </head>
 <body>
 <header>
-  <h1>2級 電気工事施工管理技士 ／ 第一次検定 学習アプリ</h1>
-  <p>本試験の出題分野・形式に準拠したオリジナル模擬問題（過去5年相当の頻出テーマを網羅）</p>
+  <div class="mark">2級 電気工事施工管理技士 ／ 第一次検定</div>
+  <h1 id="appTitle">ホーム</h1>
 </header>
-<nav>
-  <button data-tab="home" class="active">ホーム</button>
-  <button data-tab="exam">模擬試験</button>
-  <button data-tab="drill">分野別演習</button>
-  <button data-tab="archive">アーカイブ</button>
+<nav class="tabbar" aria-label="メインナビゲーション">
+  <div class="inner">
+    <button data-tab="home" class="active" aria-label="ホーム">
+      <svg viewBox="0 0 24 24"><path d="M3 9.5 12 3l9 6.5"/><path d="M5 9v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9"/><path d="M10 21v-6h4v6"/></svg>
+      <span>ホーム</span>
+    </button>
+    <button data-tab="exam" aria-label="模擬試験">
+      <svg viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V3h6v1"/><path d="m9 12 2 2 4-4"/><path d="M9 17h4"/></svg>
+      <span>模擬試験</span>
+    </button>
+    <button data-tab="drill" aria-label="分野別演習">
+      <svg viewBox="0 0 24 24"><path d="m12 3 9 5-9 5-9-5 9-5Z"/><path d="m3 13 9 5 9-5"/></svg>
+      <span>分野別</span>
+    </button>
+    <button data-tab="archive" aria-label="学習の記録">
+      <svg viewBox="0 0 24 24"><path d="M3.5 12a8.5 8.5 0 1 0 2.6-6.1"/><path d="M3 4v5h5"/><path d="M12 8v4.5l3 1.8"/></svg>
+      <span>記録</span>
+    </button>
+  </div>
 </nav>
 <div class="wrap">
 
@@ -177,7 +225,7 @@
         <div id="ex_fb"></div>
         <div class="rowbtn">
           <button class="btn" id="ex_submit" disabled>解答する</button>
-          <button class="btn sec hidden" id="ex_next">次の問題へ</button>
+          <button class="btn hidden" id="ex_next">次の問題へ</button>
         </div>
       </div>
     </div>
@@ -225,7 +273,7 @@
         <div id="dr_fb"></div>
         <div class="rowbtn">
           <button class="btn" id="dr_submit" disabled>解答する</button>
-          <button class="btn sec hidden" id="dr_next">次の問題へ</button>
+          <button class="btn hidden" id="dr_next">次の問題へ</button>
           <button class="btn ghost" data-goto="drill">分野一覧へ</button>
         </div>
       </div>
@@ -706,7 +754,7 @@ BANK.forEach((q,i)=>q.id=i);
    模擬試験の出題構成（本番の分野配分に近似・計40問）
    ============================================================ */
 const PLAN = [
-  ["riron",2],["kiki",2],["denryoku",3],["setsubi",3],["kanren",2],
+  ["riron",3],["kiki",2],["denryoku",3],["setsubi",3],["kanren",2],
   ["keikaku",3],["koutei",3],["hinshitsu",3],["anzen",4],["ouyou",4],
   ["kensetsu",3],["denki_ho",3],["roudou",2],["other_ho",2],
 ];
@@ -734,8 +782,10 @@ function arraysEqualAsSet(a,b){if(a.length!==b.length)return false;const sa=[...
    ============================================================ */
 $$("nav button").forEach(b=>b.addEventListener("click",()=>gotoTab(b.dataset.tab)));
 $$("[data-goto]").forEach(b=>b.addEventListener("click",()=>gotoTab(b.dataset.goto)));
+const TAB_TITLE = {home:"ホーム", exam:"模擬試験", drill:"分野別演習", archive:"学習の記録"};
 function gotoTab(t){
   $$("nav button").forEach(b=>b.classList.toggle("active",b.dataset.tab===t));
+  const at = $("#appTitle"); if(at && TAB_TITLE[t]) at.textContent = TAB_TITLE[t];
   ["home","exam","drill","archive"].forEach(x=>$("#tab-"+x).classList.toggle("hidden",x!==t));
   if(t==="home") renderHome();
   if(t==="archive") renderArchive();
@@ -1080,7 +1130,9 @@ function renderHome(){
    ============================================================ */
 renderCatGrid();
 renderHome();
-gotoTab("home");
+const _startTab = (location.hash || "").replace("#","");
+gotoTab(TAB_TITLE[_startTab] ? _startTab : "home");
+$$("nav button").forEach(b=>b.addEventListener("click",()=>{ try{ history.replaceState(null,"","#"+b.dataset.tab); }catch(e){} }));
 </script>
 </body>
 </html>
