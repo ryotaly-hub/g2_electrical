@@ -1,0 +1,17 @@
+{
+  "name": "2級 電気工事施工管理技士 第一次検定 対策アプリ",
+  "short_name": "2級電工 施工管理",
+  "description": "2級電気工事施工管理技士 第一次検定の出題分野・形式に準拠したオリジナル模擬問題。模擬試験・分野別演習・誤答アーカイブを収録。",
+  "lang": "ja",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#eef2ff",
+  "theme_color": "#2563eb",
+  "icons": [
+    { "src": "favicon-48.png", "sizes": "48x48", "type": "image/png" },
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
