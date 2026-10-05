@@ -29,4 +29,3 @@ vercel.json
 
 - `index.html` が唯一のソースファイル。新機能を追加する際も、単一HTML構成を踏襲するか、分割するなら意図的な判断としてその理由を明確にすること。
 - 資格制度・出題内容に関する記述を変更する場合は、`電気工事施工管理技士とは.txt` や参照元サイト（`https://www.kssk.info/denkikoujiseko`）との整合を確認する。
-- 新しいアイコン・図版が必要な場合は、手描きやストック画像ではなく `generate-illustration` スキル（PC全体・`~/.claude/skills/generate-illustration/` に導入済み）で生成する。
