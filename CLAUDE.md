@@ -11,7 +11,7 @@
 ## コマンド
 
 - **ローカル確認**: `index.html` をブラウザで直接開く。
-- **デプロイ**: GitHub Pages（https://ryotaly-hub.github.io/g2_electrical/ ）。`main` に push すると `.github/workflows/pages.yml` がリポジトリ直下をビルド無しでそのまま公開する。Vercel は使わない。
+- **デプロイ**: GitHub Pages（https://ryotaly-hub.github.io/g2_electrical/ ）。`main` に push すると `.github/workflows/pages.yml` がアプリに必要なファイル（`index.html`・`manifest.webmanifest`・アイコン画像）だけをビルド無しで公開する。`CLAUDE.md`・`design/`・`.txt` は公開しない。index.html から新しいファイルを参照する場合はワークフローのコピー対象にも追加すること。Vercel は使わない。
 - **ビルド／lint／テスト**: 該当コマンド無し。
 
 ## ディレクトリ構造

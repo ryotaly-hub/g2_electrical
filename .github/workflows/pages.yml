@@ -24,8 +24,16 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/configure-pages@v5
+      # アプリに必要なファイルだけを _site/ に集めて公開する（CLAUDE.md・design/ などは公開しない）
+      # index.html から新しいファイルを参照するときは、ここにも追加すること
+      - name: 公開ファイルを集める
+        run: |
+          mkdir _site
+          cp index.html manifest.webmanifest \
+             favicon-32.png favicon-48.png icon-192.png icon-512.png apple-touch-icon.png \
+             _site/
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: _site
       - id: deployment
         uses: actions/deploy-pages@v4
