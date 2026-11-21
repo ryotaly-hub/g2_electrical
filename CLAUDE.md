@@ -11,7 +11,7 @@
 ## コマンド
 
 - **ローカル確認**: `index.html` をブラウザで直接開く。
-- **デプロイ**: Vercel。`vercel.json` で `framework: null` / `buildCommand: null` / `outputDirectory: "."` を明示しており、ビルドステップ無しでそのまま配信される。
+- **デプロイ**: GitHub Pages（https://ryotaly-hub.github.io/g2_electrical/ ）。`main` に push すると `.github/workflows/pages.yml` がリポジトリ直下をビルド無しでそのまま公開する。Vercel は使わない。
 - **ビルド／lint／テスト**: 該当コマンド無し。
 
 ## ディレクトリ構造
@@ -22,7 +22,7 @@ design/                              デザイン案・実装スクリーンシ�
 icon-192.png / icon-512.png / apple-touch-icon.png / favicon-*.png   アプリアイコン各種
 manifest.webmanifest
 電気工事施工管理技士とは.txt         資格制度の説明テキスト（出題内容の参考元）
-vercel.json
+.github/workflows/pages.yml          GitHub Pages への公開ワークフロー
 ```
 
 ## 注意事項
